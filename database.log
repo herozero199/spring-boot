@@ -1,0 +1,45 @@
+0|statement|
+select * from INFORMATION_SCHEMA.SEQUENCES
+select * from INFORMATION_SCHEMA.SEQUENCES
+0|statement|
+drop table if exists post cascade 
+drop table if exists post cascade 
+0|statement|
+drop table if exists post_comment cascade 
+drop table if exists post_comment cascade 
+0|statement|
+drop sequence if exists post_comment_seq
+drop sequence if exists post_comment_seq
+0|statement|
+drop sequence if exists post_seq
+drop sequence if exists post_seq
+0|statement|
+create sequence post_comment_seq start with 1 increment by 50
+create sequence post_comment_seq start with 1 increment by 50
+0|statement|
+create sequence post_seq start with 1 increment by 50
+create sequence post_seq start with 1 increment by 50
+0|statement|
+create table post (id bigint not null, title varchar(255), primary key (id))
+create table post (id bigint not null, title varchar(255), primary key (id))
+0|statement|
+create table post_comment (id bigint not null, post_id bigint, review varchar(255), primary key (id))
+create table post_comment (id bigint not null, post_id bigint, review varchar(255), primary key (id))
+0|statement|
+alter table if exists post_comment add constraint FKna4y825fdc5hw8aow65ijexm0 foreign key (post_id) references post
+alter table if exists post_comment add constraint FKna4y825fdc5hw8aow65ijexm0 foreign key (post_id) references post
+0|statement|
+select next value for post_seq
+select next value for post_seq
+0|statement|
+select next value for post_comment_seq
+select next value for post_comment_seq
+0|statement|
+insert into post (title,id) values (?,?)
+insert into post (title,id) values ('First post',1)
+0|statement|
+insert into post_comment (post_id,review,id) values (?,?,?)
+insert into post_comment (post_id,review,id) values (1,'My first review',1)
+0|commit|
+
+
